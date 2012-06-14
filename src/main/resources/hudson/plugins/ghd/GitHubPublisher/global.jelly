@@ -1,0 +1,32 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!-- nothing to configure -->
+  <f:section title="GitHub download section profiles">
+    <f:entry title="GitHub download profiles" description="Profiles for publishing to GitHub downloads sections">
+      <f:repeatable var="profile" items="${descriptor.profiles}">
+        <table width="100%">
+          <f:entry title="Profile name" help="/plugin/ghd/help-profile.html">
+            <f:textbox name="ghd.name" value="${profile.name}"/>
+          </f:entry>
+          <f:entry title="User" help="/plugin/ghd/help-user.html">
+            <f:textbox name="ghd.user" value="${profile.user}" 
+            />
+          </f:entry>
+          <f:entry title="Password" help="/plugin/ghd/help-password.html">
+            <input class="setting-input" name="ghd.password"
+                   type="password" value="${profile.password}"
+             />
+          </f:entry>
+          <f:entry title="Organization" help="/plugin/ghd/help-organization.html">
+            <f:textbox name="ghd.organization" value="${profile.organization}" 
+            />
+          </f:entry>
+          <f:entry title="">
+            <div align="right">
+              <f:repeatableDeleteButton />
+            </div>
+          </f:entry>
+        </table>
+      </f:repeatable>
+    </f:entry>
+  </f:section>
+</j:jelly>

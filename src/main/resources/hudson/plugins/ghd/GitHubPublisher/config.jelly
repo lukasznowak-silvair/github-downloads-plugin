@@ -1,0 +1,31 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <j:set var="helpURL" value="/plugin/ghd" />
+    <f:entry title="GitHub downloads section profile">
+      <select class="setting-input" name="ghd.name" description="Select configured GitHub downloads section profile. Check global hudson config for defining access properties for this profile">
+        <j:forEach var="s" items="${descriptor.profiles}">
+          <f:option selected="${s.name==instance.name}">${s.name}</f:option>
+        </j:forEach>
+      </select>
+    </f:entry>
+
+  <f:entry title="Files to upload">		
+    <f:repeatable var="e" items="${instance.entries}">
+      <table width="100%">
+        <f:entry title="Source" help="${helpURL}/help-source.html">
+          <input class="setting-input" name="ghd.entry.sourceFile"
+            type="text" value="${e.sourceFile}" />
+        </f:entry>
+        <f:entry title="Destination repository" help="${helpURL}/help-destination-repository.html">
+          <input class="setting-input" name="ghd.entry.destinationRepository"
+            type="text" value="${e.destinationRepository}" />
+        </f:entry>
+        <f:entry title="">
+          <div align="right">
+            <f:repeatableDeleteButton />
+          </div>
+        </f:entry>
+      </table>
+    </f:repeatable>
+  </f:entry>
+</j:jelly>
