@@ -11,4 +11,4 @@ Tested with Hudson 1.467
 Notes
 =====
 
-* This plugin is completle based on source code from S3 Plugin (https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin)
+* This plugin is completly based on source code from S3 Plugin (https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin)
